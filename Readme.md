@@ -1,151 +1,91 @@
-# 💰 ExpenseTrackerFX – JavaFX + PostgreSQL
+# ExpenseTrackerFX - Personal Expense Manager
 
-A modern, feature-rich **Personal Expense Management Application** built with **JavaFX 21** and **PostgreSQL**.  
-This project helps users track, analyze, and export their expenses in a clean and responsive desktop application.
+A desktop application to track and manage your personal expenses using JavaFX and PostgreSQL.
 
----
+## What it does
 
-## 🚀 Features
+- Track your daily expenses
+- View spending analytics with charts
+- Export data to CSV files
+- Switch between light and dark themes
 
-### **Modern & Responsive UI**
-- Sleek, professional design with **collapsible sidebar** and **card-based layouts**.
-- Smooth animations for transitions and interactions.
-- 100% **theme-responsive** with Light ☀️ & Dark 🌙 modes.
+## Features
 
-### **Live Data Dashboard**
-- Monthly overview card with:
-    - ✅ Total spending
-    - ✅ Top spending category
-    - ✅ Daily average spend
-- Quick Actions card for fast navigation.
+- **Dashboard**: See your monthly spending overview
+- **Add Expenses**: Record new expenses with category, amount, date, and notes
+- **Analytics**: View charts showing spending by category and monthly trends
+- **Export**: Save your expense data as CSV files
+- **Themes**: Choose between light and dark mode
 
-### **Advanced Analytics Suite**
-- Interactive charts with professional segmented controls.
-- Visualizations include:
-    - 🥧 **Pie Chart** → Category share
-    - 📊 **Bar Chart** → Category totals
-    - 📈 **Line Chart** → Monthly spending trends
-- Filters to compare spending across the **last 12 months**.
+## Requirements
 
-### **Intuitive Expense Logging**
-- User-friendly form with fields: category, amount, date, merchant & notes.
-- Quick and accurate entry system.
+- Java 21 or higher
+- PostgreSQL database
+- Maven (for building)
 
-### **Professional Data Export**
-- Export monthly expenses to **CSV**.
-- File chooser defaults to user’s **Downloads** folder.
-- Custom file naming support.
+## Setup
 
----
+1. **Install PostgreSQL** and create a database:
+   ```sql
+   CREATE DATABASE expense_tracker;
+   ```
 
-## 🛠️ Technologies Used
-- **Java 21**
-- **JavaFX 21** (FXML for layout, Java for controllers)
-- **PostgreSQL** (Relational Database)
-- **HikariCP** (High-performance connection pooling)
-- **Flyway** (Database schema migration)
-- **Maven** (Build & Dependency Management)
-- **CSS** (Theme-responsive styling)
-- **Ikonli** (Modern Material Design icons)
-- **Layered Architecture** (UI, Service, DAO/Repository, Model)
+2. **Create the expenses table**:
+   ```sql
+   CREATE TABLE expenses (
+       id SERIAL PRIMARY KEY,
+       category VARCHAR(100) NOT NULL,
+       amount DECIMAL(10, 2) NOT NULL,
+       date DATE NOT NULL,
+       merchant VARCHAR(100),
+       notes TEXT
+   );
+   ```
 
----
+3. **Update database connection** in `DatabaseConfig.java`:
+   - Change username and password to match your PostgreSQL setup
 
-## 📂 Project Structure
-```plaintext
-ExpenseTracker/
-│── .idea/
-│── .mvn/
-│── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   └── com/isa/expensetracker/
-│   │   │       ├── dao/
-│   │   │       ├── db/
-│   │   │       ├── model/
-│   │   │       ├── repo/
-│   │   │       ├── service/
-│   │   │       ├── ui/
-│   │   │       ├── util/ # each file is linked to a resource fxml file
-│   │   │       └── MainApp.java
-│   │   ├── resources/
-│   │   │   └── com/isa/expensetracker/
-│   │   │       ├── analytics.fxml
-│   │   │       ├── dashboard.fxml
-│   │   │       ├── expense_form.fxml
-│   │   │       ├── main.fxml
-│   │   │       └── settings.fxml
-│   │   │
-│   │   ├── css/
-│   │   │   └── app.css
-│   │   │
-│   │   ├── db.migration/
-│   │   │   └── V1__init.sql
-│   │   │
-│   │   ├── icons/
-│   │   │   └── app.png
-│   │   │
-│   │   └── application.properties
-│   │
-│   └── module-info.java
-│
-└── pom.xml
-```
-## 🗄 Database Setup
+## How to Run
 
-Run the following SQL before starting the application:
-
-```sql
--- Create database
-CREATE DATABASE IF NOT EXISTS expense_tracker;
-
--- Create table
-CREATE TABLE expenses (
-    id SERIAL PRIMARY KEY,
-    category VARCHAR(100) NOT NULL,
-    amount DECIMAL(10, 2) NOT NULL,
-    date DATE NOT NULL,
-    merchant VARCHAR(100),
-    notes TEXT
-);
-```
-Flyway will manage schema migrations automatically on startup.
-
-## ▶️ How to Run
-
-1. **Clone the repository**
+1. **Download or clone** the project
+2. **Open terminal** in the project folder
+3. **Run these commands**:
    ```bash
-   git clone https://github.com/your-username/expense-tracker-fx.git
-   cd expense-tracker-fx
-2. **Configure Database Connection**
+   mvn clean install
+   mvn javafx:run
+   ```
 
-   Update your PostgreSQL username & password in:
-```aiignore
-src/main/java/com/expensetrackerfx/config/DatabaseConfig.java
+Or open the project in your IDE (IntelliJ IDEA, Eclipse) and run `MainApp.java`.
+
+## How to Use
+
+1. **Dashboard**: Opens automatically - shows your spending summary
+2. **Add Expense**: Click "Add Expense" to record new spending
+3. **Analytics**: Click "Analytics" to see charts and graphs
+4. **Export**: Click "Export" to save data as CSV file
+5. **Settings**: Change between light/dark theme
+
+## Project Structure
+
 ```
-3. Build & Run
-- Using Maven:
-```bash
-mvn clean install
-mvn javafx:run
+ExpenseTracker/
+├── src/main/java/              # Java source code
+├── src/main/resources/         # FXML layouts and CSS
+├── src/main/resources/css/     # Styling files
+└── pom.xml                     # Maven dependencies
 ```
-- Or open in IntelliJ/Eclipse and run Main.java.
 
----
-## 📸 Sample Video
+## Technology Used
 
+- **Java 21** - Programming language
+- **JavaFX 21** - User interface
+- **PostgreSQL** - Database
+- **Maven** - Build tool
+- **CSS** - Styling
 
-https://github.com/user-attachments/assets/5a8f0970-d08d-494f-8f03-54b86fa20b67
+## Need Help?
 
-
----
-## 🔮 Future Enhancements
-I am open to suggestions and plan to continue developing this Application with new Ideas :).
-
-
-
----
-
-## 🤝 Contact
-🧑‍💻 Your Name – [isashaikh2005@gmail.com](mailto:isashaikh2005@gmail.com)  
-🔗 Project Link: [ExpenseTrackerFX](https://github.com/IsaShaikh/Expense-tracker-fx)
+- Make sure PostgreSQL is running
+- Check database connection settings
+- Verify Java 21 is installed
+- Contact me if you have issues
