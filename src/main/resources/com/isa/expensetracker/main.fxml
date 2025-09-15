@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane
+        xmlns="http://javafx.com/javafx/21"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.isa.expensetracker.ui.MainController"
+        fx:id="root">
+
+    <!-- SIDEBAR -->
+    <left>
+        <VBox fx:id="sidebar" spacing="8" styleClass="sidebar">
+            <!-- Top row with icon toggle and brand name -->
+            <HBox alignment="CENTER_LEFT" spacing="12">
+                <ImageView fx:id="imgToggle" fitHeight="32" fitWidth="32" pickOnBounds="true" preserveRatio="true" styleClass="toggle-icon"/>
+                <Label fx:id="brandLabel" text="ExpenseTracker" styleClass="brand"/>
+            </HBox>
+
+            <Separator/>
+
+            <!-- Nav buttons -->
+            <Button fx:id="btnDashboard" text="Dashboard" styleClass="nav-button" alignment="BASELINE_LEFT" graphicTextGap="12" maxWidth="Infinity"/>
+            <Button fx:id="btnAdd" text="Add Expense" styleClass="nav-button" alignment="BASELINE_LEFT" graphicTextGap="12" maxWidth="Infinity"/>
+            <Button fx:id="btnAnalytics" text="Analytics" styleClass="nav-button" alignment="BASELINE_LEFT" graphicTextGap="12" maxWidth="Infinity"/>
+
+            <Button fx:id="btnSettings" text="Settings" disable="true" styleClass="nav-button" alignment="BASELINE_LEFT" graphicTextGap="12" maxWidth="Infinity"/>
+
+            <Pane VBox.vgrow="ALWAYS"/>
+
+
+            <BorderPane>
+                <left>
+                    <HBox alignment="CENTER_LEFT" spacing="12">
+                        <Label fx:id="themeLabel" text="Light Mode" styleClass="theme-label"/>
+                        <StackPane fx:id="themeToggle" styleClass="theme-switch"/>
+                    </HBox>
+                </left>
+                <right>
+                    <Label fx:id="versionLabel" text="v1.0" styleClass="version"/>
+                </right>
+            </BorderPane>
+
+            <padding>
+                <Insets top="16" right="16" bottom="16" left="16"/>
+            </padding>
+        </VBox>
+    </left>
+
+    <!-- MAIN CONTENT -->
+    <center>
+        <VBox alignment="TOP_CENTER" styleClass="content-area-background" spacing="16">
+            <padding>
+                <Insets top="16" right="16" bottom="16" left="16"/>
+            </padding>
+            <StackPane fx:id="content" styleClass="content-pane" VBox.vgrow="ALWAYS" maxWidth="1200"/>
+        </VBox>
+    </center>
+</BorderPane>

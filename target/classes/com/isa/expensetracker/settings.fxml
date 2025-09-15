@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.isa.expensetracker.ui.SettingsController"
+      spacing="24">
+
+    <padding>
+        <Insets top="24" right="24" bottom="24" left="24"/>
+    </padding>
+
+    <!-- Header -->
+    <Label text="Settings" styleClass="h1"/>
+
+    <!-- Export Data Card -->
+    <VBox styleClass="dashboard-card" spacing="20">
+        <Label text="Export Data" styleClass="h2"/>
+        <Label text="Export your monthly expense data to a CSV file for use in other applications." styleClass="subtle"/>
+
+        <Separator/>
+
+        <GridPane hgap="12" vgap="14" alignment="CENTER_LEFT">
+            <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" prefWidth="120"/>
+                <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+            </columnConstraints>
+
+            <Label text="Select Month:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="monthBox" maxWidth="Infinity" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Export File:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <HBox spacing="10" alignment="CENTER_LEFT" GridPane.rowIndex="1" GridPane.columnIndex="1">
+                <!-- ✅ FIX: Made the text field editable -->
+                <TextField fx:id="tfExportPath" editable="true" promptText="Enter a file path or click 'Choose'" HBox.hgrow="ALWAYS"/>
+                <Button fx:id="btnChooseFile" text="Choose..."/>
+            </HBox>
+        </GridPane>
+
+        <HBox alignment="CENTER_LEFT">
+            <Button fx:id="btnExport" text="Export to CSV" disable="true"/>
+        </HBox>
+    </VBox>
+</VBox>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+
+<VBox
+        xmlns="http://javafx.com/javafx/21"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.isa.expensetracker.ui.DashboardController"
+        fx:id="root"
+        spacing="24">
+
+    <!-- Hero header -->
+    <VBox spacing="6">
+        <Label text="Welcome Back 👋" styleClass="h1"/>
+        <Label fx:id="lblMonth" styleClass="subtle"/>
+    </VBox>
+
+    <!-- Card layout for dashboard widgets -->
+    <TilePane hgap="20" vgap="20" prefColumns="2">
+        <!-- Card 1: Quick Actions -->
+        <VBox styleClass="dashboard-card" spacing="16">
+            <Label text="Quick Actions" styleClass="h2"/>
+            <VBox spacing="10">
+                <Button fx:id="btnAdd" text="Add New Expense" maxWidth="Infinity" styleClass="dashboard-action-button"/>
+                <Button fx:id="btnAnalytics" text="View Analytics" maxWidth="Infinity" styleClass="dashboard-action-button"/>
+            </VBox>
+        </VBox>
+
+        <!-- Card 2: Monthly Overview -->
+        <VBox styleClass="dashboard-card" spacing="16">
+            <Label text="Monthly Overview" styleClass="h2"/>
+            <GridPane hgap="10" vgap="12">
+                <columnConstraints>
+                    <ColumnConstraints halignment="LEFT" prefWidth="140"/>
+                    <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS"/>
+                </columnConstraints>
+
+                <Label text="Total Spent:" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="metric-label"/>
+                <Label fx:id="lblTotalSpent" text="₹0.00" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="metric-value"/>
+
+                <Label text="Top Category:" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="metric-label"/>
+                <Label fx:id="lblTopCategory" text="-" GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="metric-value"/>
+
+                <Label text="Daily Average:" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="metric-label"/>
+                <Label fx:id="lblDailyAverage" text="₹0.00" GridPane.rowIndex="2" GridPane.columnIndex="1" styleClass="metric-value"/>
+            </GridPane>
+        </VBox>
+    </TilePane>
+
+    <padding>
+        <Insets top="24" right="24" bottom="24" left="24"/>
+    </padding>
+</VBox>

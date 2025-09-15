@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.isa.expensetracker.ui.AnalyticsController"
+      spacing="24">
+
+    <padding>
+        <Insets top="24" right="24" bottom="24" left="24"/>
+    </padding>
+
+
+
+    <!-- Header -->
+    <BorderPane>
+        <left>
+            <VBox>
+                <Label text="Monthly Analytics" styleClass="h1"/>
+                <Label text="Visualize your spending by category and trends over time" styleClass="subtle"/>
+            </VBox>
+        </left>
+        <right>
+            <HBox alignment="CENTER_RIGHT" spacing="12">
+                <ComboBox fx:id="monthBox" prefWidth="180"/>
+                <!-- Segmented button for a chart type -->
+                <HBox styleClass="segmented-button-bar">
+                    <ToggleButton fx:id="btnPieChart" text="Pie"/>
+                    <ToggleButton fx:id="btnBarChart" text="Bar"/>
+                    <ToggleButton fx:id="btnLineChart" text="Line"/>
+                </HBox>
+            </HBox>
+        </right>
+    </BorderPane>
+
+    <!-- Chart Area -->
+    <ScrollPane fitToWidth="true" fitToHeight="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" styleClass="chart-scroll-pane">
+        <TilePane fx:id="chartArea" hgap="20" vgap="20" prefColumns="1"/>
+    </ScrollPane>
+
+</VBox>
