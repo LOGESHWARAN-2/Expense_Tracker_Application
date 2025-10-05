@@ -1,6 +1,6 @@
 # ExpenseTrackerFX - Personal Expense Manager
 
-A desktop application to track and manage your personal expenses using JavaFX and PostgreSQL.
+A desktop application to track and manage your personal expenses using JavaFX and MySQL.
 
 ## What it does
 
@@ -20,12 +20,12 @@ A desktop application to track and manage your personal expenses using JavaFX an
 ## Requirements
 
 - Java 21 or higher
-- PostgreSQL database
+- MySQL database
 - Maven (for building)
 
 ## Setup
 
-1. **Install PostgreSQL** and create a database:
+1. **Install MySQL** and create a database:
    ```sql
    CREATE DATABASE expense_tracker;
    ```
@@ -43,7 +43,7 @@ A desktop application to track and manage your personal expenses using JavaFX an
    ```
 
 3. **Update database connection** in `DatabaseConfig.java`:
-   - Change username and password to match your PostgreSQL setup
+   - Change username and password to match your MySQL setup
 
 ## How to Run
 
@@ -79,13 +79,13 @@ ExpenseTracker/
 
 - **Java 21** - Programming language
 - **JavaFX 21** - User interface
-- **PostgreSQL** - Database
+- **MySQL** - Database
 - **Maven** - Build tool
 - **CSS** - Styling
 
 ## Need Help?
 
-- Make sure PostgreSQL is running
+- Make sure MySQL is running
 - Check database connection settings
 - Verify Java 21 is installed
 - Contact me if you have issues
