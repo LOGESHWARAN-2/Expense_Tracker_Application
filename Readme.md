@@ -33,10 +33,10 @@ A desktop application to track and manage your personal expenses using JavaFX an
 2. **Create the expenses table**:
    ```sql
    CREATE TABLE expenses (
-       id SERIAL PRIMARY KEY,
-       category VARCHAR(100) NOT NULL,
-       amount DECIMAL(10, 2) NOT NULL,
-       date DATE NOT NULL,
+       id int PRIMARY KEY,
+       category VARCHAR(100) ,
+       amount DECIMAL(10, 2) ,
+       date DATE ,
        merchant VARCHAR(100),
        notes TEXT
    );
